@@ -1,0 +1,31 @@
+
+  <div class="row m-4">
+    <div style="background-color: rgb(219, 235, 239);" class="col-md-12 p-4 m-1">
+      <div class="">
+        <h3>Welcome to Our Movie</h3>
+        <p>This is a simple website to display movies.</p>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control me-3" [(ngModel)]="name" id="exampleInput" placeholder="Type here...">
+          <div class="input-group-append">
+            <button type="button" (click)="getSearch()" class="btn btn-info">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h1 class="m-3 p-2">Popular Movies</h1>
+  
+  <div style="padding: 2vw;" class="row mb-5 row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+    @for (movie of movies; track movie.id; let i = $index){
+    <div class="col">
+      <app-movie-card [movieItem]="movie"></app-movie-card>
+    </div>
+    }@empty{
+    <p class="col">List is empty</p>
+
+    }
+  </div>
+  <app-paginations [currentPage]="currentPage" [totalPages]="totalPages" (pageChange)="onPageChange($event)"></app-paginations>

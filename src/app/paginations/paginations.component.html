@@ -1,0 +1,10 @@
+
+<div>
+  <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+    Previous Page
+  </button>
+  <span>Current Page: {{ currentPage }}</span>
+  <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">
+    Next Page
+  </button>
+</div>
